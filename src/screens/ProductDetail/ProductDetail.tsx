@@ -1,8 +1,8 @@
 import React from 'react'
 import { 
     View, 
-    Text, 
-    Button, 
+    Button,
+    StyleSheet, 
 } from 'react-native'
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
 import { RootStackParamList } from '../../router/Router'
@@ -13,15 +13,20 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ navigation, route }: Prod
     const { productId } = route?.params
 
     return (
-        <View>
-            <Text>ProductDetail</Text>
-            <Text>Product ID: {productId}</Text>
+        <View style={styles.container}>
             <Button
                 title='Back to Home Screen'
-                onPress={() => navigation.navigate('Home')}
+                onPress={() => navigation.goBack()}
             />
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        padding: 12,
+    }
+})
 
 export default ProductDetail
